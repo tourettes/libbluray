@@ -3831,3 +3831,20 @@ void bd_free_bdjo(struct bdjo_data *obj)
     (void)obj;
 #endif
 }
+
+int bd_get_clip_infos(BLURAY *bd, unsigned int clip, uint64_t *clip_start_time, uint64_t *stream_start_time, uint64_t *pos, uint64_t *duration)
+{
+    if (bd && bd->title && bd->title->clip_list.count > clip) {
+      if (clip_start_time)
+        *clip_start_time = (uint64_t)bd->title->clip_list.clip[clip].title_time << 1;
+      if (stream_start_time)
+        *stream_start_time = (uint64_t)bd->title->clip_list.clip[clip].in_time << 1;
+      if (pos)
+        *pos = (uint64_t)bd->title->clip_list.clip[clip].title_pkt * 192;
+      if (duration)
+        *duration = (uint64_t)bd->title->clip_list.clip[clip].duration << 1;
+
+      return 1;
+    }
+    return 0;
+}
