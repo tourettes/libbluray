@@ -48,6 +48,7 @@ EXPORTS
                 bd_get_meta
                 bd_get_clpi
                 bd_free_clpi
+                bd_get_clip_infos
 
                 ; additional functions
                 bd_set_debug_handler

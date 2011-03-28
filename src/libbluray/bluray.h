@@ -1053,6 +1053,19 @@ void bd_stop_bdj(BLURAY *bd); // shutdown BD-J and clean up resources
  */
 int bd_read_file(BLURAY *, const char *path, void **data, int64_t *size);
 
+/**
+ *
+ * Get information about the clip
+ *
+ * @param bd  BLURAY object
+ * @param clip clip index
+ * @param clip_start_time start of the clip (in the total title) (in 90khz)
+ * @param stream_start_time first pts in the clip (in 90khz)
+ * @param byte position of the clip (absolute)
+ * @param duration duration of the clip (in 90khz)
+ */
+int bd_get_clip_infos(BLURAY *bd, unsigned int clip, uint64_t *clip_start_time, uint64_t *stream_start_time, uint64_t *pos, uint64_t *duration);
+
 
 #ifdef __cplusplus
 }
