@@ -229,12 +229,14 @@ typedef struct bd_clip {
     uint8_t            ig_stream_count;
     uint8_t            sec_audio_stream_count;
     uint8_t            sec_video_stream_count;
+    uint8_t            raw_stream_count;
     BLURAY_STREAM_INFO *video_streams;
     BLURAY_STREAM_INFO *audio_streams;
     BLURAY_STREAM_INFO *pg_streams;
     BLURAY_STREAM_INFO *ig_streams;
     BLURAY_STREAM_INFO *sec_audio_streams;
     BLURAY_STREAM_INFO *sec_video_streams;
+    BLURAY_STREAM_INFO *raw_streams; /* custom extension */
 
     uint64_t           start_time;
     uint64_t           in_time;
