@@ -2518,6 +2518,40 @@ static void _copy_streams(NAV_CLIP *clip, BLURAY_STREAM_INFO *streams, MPLS_STRE
     }
 }
 
+static void _copy_streams_clip(NAV_CLIP *clip, BLURAY_STREAM_INFO **streams, uint8_t *count)
+{
+  int ii, kk, idx, idx2;
+
+  *count = 0;
+  for (ii = 0; ii < clip->cl->program.num_prog; ii++) {
+    *count += clip->cl->program.progs[ii].num_streams;
+  }
+
+  *streams = (BLURAY_STREAM_INFO *)calloc(*count, sizeof(BLURAY_STREAM_INFO));
+
+  idx = 0;
+  for (ii = 0; ii < clip->cl->program.num_prog; ii++) {
+    CLPI_PROG *prog = &clip->cl->program.progs[ii];
+    for(kk = 0; kk < prog->num_streams; kk++) {
+      for (idx2 = 0; idx2 < idx; idx2++) {
+        if ((*streams)[idx2].pid == prog->streams[kk].pid) {
+          goto next;
+        }
+      }
+      (*streams)[idx].coding_type = prog->streams[kk].coding_type;
+      (*streams)[idx].format = prog->streams[kk].format;
+      (*streams)[idx].rate = prog->streams[kk].rate;
+      (*streams)[idx].char_code = prog->streams[kk].char_code;
+      memcpy((*streams)[idx].lang, prog->streams[kk].lang, 4);
+      (*streams)[idx].pid = prog->streams[kk].pid;
+      (*streams)[idx].aspect = prog->streams[kk].aspect;
+
+      idx++;
+      next: ;
+    }
+  }
+}
+
 static BLURAY_TITLE_INFO* _fill_title_info(NAV_TITLE* title, uint32_t title_idx, uint32_t playlist)
 {
     BLURAY_TITLE_INFO *title_info;
@@ -2578,6 +2612,8 @@ static BLURAY_TITLE_INFO* _fill_title_info(NAV_TITLE* title, uint32_t title_idx,
         _copy_streams(nc, ci->ig_streams, pi->stn.ig, ci->ig_stream_count);
         _copy_streams(nc, ci->sec_video_streams, pi->stn.secondary_video, ci->sec_video_stream_count);
         _copy_streams(nc, ci->sec_audio_streams, pi->stn.secondary_audio, ci->sec_audio_stream_count);
+
+        _copy_streams_clip(nc, &ci->raw_streams, &ci->raw_stream_count);
     }
 
     return title_info;
@@ -2643,6 +2679,7 @@ void bd_free_title_info(BLURAY_TITLE_INFO *title_info)
         X_FREE(title_info->clips[ii].ig_streams);
         X_FREE(title_info->clips[ii].sec_video_streams);
         X_FREE(title_info->clips[ii].sec_audio_streams);
+        X_FREE(title_info->clips[ii].raw_streams);
     }
     X_FREE(title_info->clips);
     X_FREE(title_info);
