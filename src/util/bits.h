@@ -26,7 +26,11 @@
 #include "util/attributes.h"
 #include "file/filesystem.h" // BD_FILE_H
 
+#ifdef _WIN32
+typedef long ssize_t;
+#else
 #include <stdint.h>
+#endif
 #include <stddef.h>    // size_t
 
 
