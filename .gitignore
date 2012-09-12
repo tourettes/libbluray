@@ -5,6 +5,7 @@
 *.pc
 *.tar.*
 Makefile.in
+*.user
 Makefile
 aclocal.m4
 m4/libtool.m4
