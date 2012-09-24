@@ -32,6 +32,7 @@ extern "C" {
  */
 
 #include <stdint.h>
+#include "bdnav/clpi_data.h"
 
 #define TITLES_ALL              0    /**< all titles. */
 #define TITLES_FILTER_DUP_TITLE 0x01 /**< remove duplicate titles. */
@@ -1000,7 +1001,6 @@ int bd_mouse_select(BLURAY *bd, int64_t pts, uint16_t x, uint16_t y);
 
 /* access to internal information */
 
-struct clpi_cl;
 /**
  *
  *  Get copy of clip information for requested playitem.
