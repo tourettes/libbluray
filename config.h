@@ -134,7 +134,9 @@
 #define STDC_HEADERS 1
 
 /* "Define to 1 if using BD-Java" */
-/* #undef USING_BDJAVA */
+#define USING_BDJAVA 1
+
+#define JDK_HOME ""
 
 /* Version number of package */
 #define VERSION "0.6.2"
