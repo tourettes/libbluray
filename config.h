@@ -138,6 +138,8 @@
 
 #define JDK_HOME ""
 
+#define HAVE_FT2 1
+
 /* Version number of package */
 #define VERSION "0.6.2"
 
