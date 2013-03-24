@@ -1,3 +1,6 @@
 [submodule "contrib/libudfread"]
 	path = contrib/libudfread
 	url = git://git.videolan.org/libudfread.git
+[submodule "3rd_party/freetype2"]
+	path = 3rd_party/freetype2
+	url = git://git.sv.nongnu.org/freetype/freetype2.git
