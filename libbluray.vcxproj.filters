@@ -61,6 +61,12 @@
     <Filter Include="Header Files\libbluray\bdj\native">
       <UniqueIdentifier>{b9a01c36-830e-4140-8fca-40fe217ce9a0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\disk">
+      <UniqueIdentifier>{ce677512-30ba-42f5-99f4-95501b339564}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\disk">
+      <UniqueIdentifier>{a4165f92-1eeb-4dd6-acac-7b94117eb0a5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\util\attributes.h">
@@ -180,12 +186,6 @@
     <ClInclude Include="src\libbluray\bdj\bdj_private.h">
       <Filter>Header Files\libbluray\bdj</Filter>
     </ClInclude>
-    <ClInclude Include="src\libbluray\bdj\bdj_util.h">
-      <Filter>Header Files\libbluray\bdj</Filter>
-    </ClInclude>
-    <ClInclude Include="src\libbluray\bdj\bdjo_parser.h">
-      <Filter>Header Files\libbluray\bdj</Filter>
-    </ClInclude>
     <ClInclude Include="src\libbluray\bdj\common.h">
       <Filter>Header Files\libbluray\bdj</Filter>
     </ClInclude>
@@ -204,6 +204,60 @@
     <ClInclude Include="src\libbluray\bdj\native\register_native.h">
       <Filter>Header Files\libbluray\bdj\native</Filter>
     </ClInclude>
+    <ClInclude Include="src\libbluray\decoders\rle.h">
+      <Filter>Header Files\libbluray\decoders</Filter>
+    </ClInclude>
+    <ClInclude Include="src\libbluray\decoders\textst.h">
+      <Filter>Header Files\libbluray\decoders</Filter>
+    </ClInclude>
+    <ClInclude Include="src\libbluray\decoders\textst_decode.h">
+      <Filter>Header Files\libbluray\decoders</Filter>
+    </ClInclude>
+    <ClInclude Include="src\libbluray\decoders\textst_render.h">
+      <Filter>Header Files\libbluray\decoders</Filter>
+    </ClInclude>
+    <ClInclude Include="src\util\refcnt.h">
+      <Filter>Header Files\util</Filter>
+    </ClInclude>
+    <ClInclude Include="src\file\libaacs.h">
+      <Filter>Header Files\file</Filter>
+    </ClInclude>
+    <ClInclude Include="src\file\libbdplus.h">
+      <Filter>Header Files\file</Filter>
+    </ClInclude>
+    <ClInclude Include="src\libbluray\decoders\m2ts_filter.h">
+      <Filter>Header Files\libbluray\decoders</Filter>
+    </ClInclude>
+    <ClInclude Include="src\util\array.h">
+      <Filter>Header Files\util</Filter>
+    </ClInclude>
+    <ClInclude Include="src\libbluray\decoders\hdmv_pids.h">
+      <Filter>Header Files\libbluray\decoders</Filter>
+    </ClInclude>
+    <ClInclude Include="src\libbluray\bdj\native\bdjo.h">
+      <Filter>Header Files\libbluray\bdj\native</Filter>
+    </ClInclude>
+    <ClInclude Include="src\libbluray\bdj\native\util.h">
+      <Filter>Header Files\libbluray\bdj\native</Filter>
+    </ClInclude>
+    <ClInclude Include="src\file\mount.h">
+      <Filter>Header Files\file</Filter>
+    </ClInclude>
+    <ClInclude Include="src\libbluray\disc\disc.h">
+      <Filter>Header Files\disk</Filter>
+    </ClInclude>
+    <ClInclude Include="src\libbluray\disc\bdplus.h">
+      <Filter>Header Files\disk</Filter>
+    </ClInclude>
+    <ClInclude Include="src\libbluray\disc\aacs.h">
+      <Filter>Header Files\disk</Filter>
+    </ClInclude>
+    <ClInclude Include="src\libbluray\disc\dec.h">
+      <Filter>Header Files\disk</Filter>
+    </ClInclude>
+    <ClInclude Include="src\libbluray\disc\enc_info.h">
+      <Filter>Header Files\disk</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\util\logging.c">
@@ -213,9 +267,6 @@
       <Filter>Source Files\util</Filter>
     </ClCompile>
     <ClCompile Include="src\file\filesystem.c">
-      <Filter>Source Files\file</Filter>
-    </ClCompile>
-    <ClCompile Include="src\file\file_posix.c">
       <Filter>Source Files\file</Filter>
     </ClCompile>
     <ClCompile Include="src\libbluray\bluray.c">
@@ -290,12 +341,6 @@
     <ClCompile Include="src\libbluray\bdj\bdj.c">
       <Filter>Source Files\libbluray\bdj</Filter>
     </ClCompile>
-    <ClCompile Include="src\libbluray\bdj\bdj_util.c">
-      <Filter>Source Files\libbluray\bdj</Filter>
-    </ClCompile>
-    <ClCompile Include="src\libbluray\bdj\bdjo_parser.c">
-      <Filter>Source Files\libbluray\bdj</Filter>
-    </ClCompile>
     <ClCompile Include="src\libbluray\bdj\native\java_awt_BDFontMetrics.c">
       <Filter>Source Files\libbluray\bdj\native</Filter>
     </ClCompile>
@@ -310,6 +355,54 @@
     </ClCompile>
     <ClCompile Include="src\libbluray\bdj\native\register_native.c">
       <Filter>Source Files\libbluray\bdj\native</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libbluray\decoders\textst_decode.c">
+      <Filter>Source Files\libbluray\decoders</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libbluray\decoders\textst_render.c">
+      <Filter>Source Files\libbluray\decoders</Filter>
+    </ClCompile>
+    <ClCompile Include="src\util\refcnt.c">
+      <Filter>Source Files\util</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libbluray\decoders\m2ts_filter.c">
+      <Filter>Source Files\libbluray\decoders</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libbluray\decoders\rle.c">
+      <Filter>Source Files\libbluray\decoders</Filter>
+    </ClCompile>
+    <ClCompile Include="src\file\file_win32.c">
+      <Filter>Source Files\file</Filter>
+    </ClCompile>
+    <ClCompile Include="src\file\file.c">
+      <Filter>Source Files\file</Filter>
+    </ClCompile>
+    <ClCompile Include="src\util\array.c">
+      <Filter>Source Files\util</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libbluray\bdj\bdjo_parse.c">
+      <Filter>Source Files\libbluray\bdj</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libbluray\bdj\native\bdjo.c">
+      <Filter>Source Files\libbluray\bdj\native</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libbluray\bdj\native\util.c">
+      <Filter>Source Files\libbluray\bdj\native</Filter>
+    </ClCompile>
+    <ClCompile Include="src\file\mount.c">
+      <Filter>Source Files\file</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libbluray\disc\disc.c">
+      <Filter>Source Files\disk</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libbluray\disc\aacs.c">
+      <Filter>Source Files\disk</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libbluray\disc\bdplus.c">
+      <Filter>Source Files\disk</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libbluray\disc\dec.c">
+      <Filter>Source Files\disk</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
