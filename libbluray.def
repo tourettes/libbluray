@@ -49,6 +49,7 @@ EXPORTS
                 bd_get_clpi
                 bd_free_clpi
                 bd_get_clip_infos
+                bd_select_stream
 
                 ; additional functions
                 bd_set_debug_handler
@@ -56,3 +57,7 @@ EXPORTS
                 bd_get_debug_mask
                 clpi_parse
                 clpi_free
+
+                ; overlay.h
+                bd_refcnt_inc
+                bd_refcnt_dec
