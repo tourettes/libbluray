@@ -666,6 +666,8 @@ typedef enum {
     /* discontinuity in the stream (non-seamless connection). Reset demuxer PES buffers. */
     BD_EVENT_DISCONTINUITY          = 28,  /* new timestamp (45 kHz) */
 
+    BD_EVENT_FLUSH                  = 31,
+
     /* HDMV VM or JVM seeked the stream. Next read() will return data from new position. Flush all buffers. */
     BD_EVENT_SEEK                   = 21,
 
