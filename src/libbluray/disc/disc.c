@@ -367,7 +367,7 @@ size_t disc_read_file(BD_DISC *disc, const char *dir, const char *file,
     if (size > 0 && size < BD_MAX_SSIZE) {
         *data = malloc((size_t)size);
         if (*data) {
-            int64_t got = file_read(fp, *data, size);
+          int64_t got = file_read(fp, *data, (size_t)size);
             if (got != size) {
                 BD_DEBUG(DBG_FILE | DBG_CRIT, "Error reading file %s from %s\n", file, dir);
                 X_FREE(*data);
@@ -428,7 +428,7 @@ int disc_cache_bdrom_file(BD_DISC *p, const char *rel_path, const char *cache_pa
         if (got <= 0) {
             break;
         }
-        if (fp_out->write(fp_out, buf, got) != got) {
+        if (fp_out->write(fp_out, buf, (size_t)got) != got) {
             BD_DEBUG(DBG_FILE | DBG_CRIT, "error caching file %s\n", rel_path);
             file_close(fp_out);
             file_close(fp_in);

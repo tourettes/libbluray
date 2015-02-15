@@ -78,7 +78,7 @@ typedef struct {
     BD_FILE_H      *fp;
     uint64_t       clip_size;
     uint64_t       clip_block_pos;
-    uint64_t       clip_pos;
+    uint32_t       clip_pos;
 
     /* current aligned unit */
     uint16_t       int_buf_off;
@@ -536,7 +536,7 @@ static int _open_m2ts(BLURAY *bd, BD_STREAM *st)
     st->fp = disc_open_stream(bd->disc, st->clip->name);
 
     st->clip_size = 0;
-    st->clip_pos = (uint64_t)st->clip->start_pkt * 192;
+    st->clip_pos = st->clip->start_pkt * 192;
     st->clip_block_pos = (st->clip_pos / 6144) * 6144;
 
     if (st->fp) {
@@ -1708,8 +1708,8 @@ static int _bd_read(BLURAY *bd, unsigned char *buf, int len)
 
         while (len > 0) {
             uint32_t clip_pkt;
+            size_t size = len;
 
-            unsigned int size = len;
             // Do we need to read more data?
             clip_pkt = SPN(st->clip_pos);
             if (bd->seamless_angle_change) {
@@ -1726,9 +1726,9 @@ static int _bd_read(BLURAY *bd, unsigned char *buf, int len)
                     }
                     bd->seamless_angle_change = 0;
                 } else {
-                    uint64_t angle_pos;
+                    uint32_t angle_pos;
 
-                    angle_pos = (uint64_t)bd->angle_change_pkt * 192L;
+                    angle_pos = bd->angle_change_pkt * 192L;
                     if (angle_pos - st->clip_pos < size)
                     {
                         size = angle_pos - st->clip_pos;

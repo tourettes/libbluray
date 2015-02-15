@@ -50,7 +50,7 @@ typedef struct {
     BD_BDPLUS_ST *bdplus;
 } DEC_STREAM;
 
-static int64_t _stream_read(BD_FILE_H *fp, uint8_t *buf, int64_t size)
+static int64_t _stream_read(BD_FILE_H *fp, uint8_t *buf, size_t size)
 {
     DEC_STREAM *st = (DEC_STREAM *)fp->internal;
     int64_t     result;
