@@ -27,6 +27,7 @@
 
 /* Define to 1 if you have the <jni.h> header file. */
 /* #undef HAVE_JNI_H */
+#define HAVE_JNI_H 1
 
 /* Define to 1 if you have the <libgen.h> header file. */
 #define HAVE_LIBGEN_H 1
