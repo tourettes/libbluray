@@ -50,6 +50,7 @@ EXPORTS
                 bd_free_clpi
                 bd_get_clip_infos
                 bd_select_stream
+                bd_set_rate
 
                 ; additional functions
                 bd_set_debug_handler
